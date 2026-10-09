@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Armstrong {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Not an Armstrong Number");
+        } else {
+            int original = n;
+            int digits = String.valueOf(n).length();
+            long sum = 0;
+
+            do {
+                int digit = n % 10;
+                sum += (long) Math.pow(digit, digits);
+                n /= 10;
+            } while (n > 0);
+
+            System.out.println(sum == original
+                    ? "Armstrong Number" : "Not an Armstrong Number");
+        }
+
+        sc.close();
+    }
+}
